@@ -72,3 +72,9 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+/* Remove focus on input boxes */
+
+textarea:focus, input:focus{
+  outline: none;
+}
