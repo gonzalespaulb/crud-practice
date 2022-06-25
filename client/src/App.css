@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+/* Font */
+
+html *
+{
+   font-family: 'K2D', sans-serif;
+}
+
 /* Remove default margin */
 body,
 h1,

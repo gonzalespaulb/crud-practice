@@ -32,9 +32,9 @@ export const BlurbContainer = styled.div`
 `;
 
 export const Blurb = styled.h1`
-  font-size: 32px;
-  line-height: 48px;
-  letter-spacing: 1px;
+  font-size: 52px;
+  line-height: 52px;
+  font-weight: 700;
 `;
 
 export const InputContainer = styled.div`
@@ -47,12 +47,14 @@ export const InputLabel = styled.h2`
   font-size: 16px;
   line-height: 16px;
   margin-bottom: 24px;
+  font-weight: 300;
 `;
 
 const InputStyling = styled.input`
   border: none;
   width: 100%;
   font-size: 24px;
+  font-weight: 300;
   background-color: transparent;
   border: none;
 `;
@@ -106,4 +108,5 @@ export const BottomUnderline = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
+  opacity: 0.4;
 `;
