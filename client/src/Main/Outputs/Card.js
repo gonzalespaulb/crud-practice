@@ -1,15 +1,17 @@
 import { CardContainer, Establishment, BlurbContainer, Address, CodeContainer, Code } from "./styles"
 
-const Card = () => {
+const Card = ({establishmentInfo}) => {
+
+
     return <CardContainer>
         <BlurbContainer>
 
-        <Establishment>Starbucks</Establishment>
-        <Address>2931 W. Hemlock St. Apt C, Oxnard, CA</Address>
+        <Establishment>{establishmentInfo.establishment}</Establishment>
+        <Address>{establishmentInfo.location}</Address>
         </BlurbContainer>
 
         <CodeContainer>
-            <Code>4351234</Code>
+            <Code>{establishmentInfo.bathroomCode}</Code>
         </CodeContainer>
     </CardContainer>
 }

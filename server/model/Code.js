@@ -5,11 +5,11 @@ const CodeSchema = new mongoose.Schema({
         type: String, 
         required: true,
     },
-    address: {
+    location: {
         type: String, 
         required: true,
     },
-    code: {
+    bathroomCode: {
         type: String, 
         required: true,
     }

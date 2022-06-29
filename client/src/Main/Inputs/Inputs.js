@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Axios from 'axios';
 import {
   MainContainer,
   InputContainer,
@@ -12,42 +14,63 @@ import {
   BlurbContainer,
   SubmitContainer,
   SubmitBlur,
-  ContainerOverlay
+  ContainerOverlay,
 } from "./styles";
 
 const Inputs = () => {
+  const [establishment, setEstablishment] = useState("");
+  const [location, setLocation] = useState("");
+  const [bathroomCode, setBathroomCode] = useState("");
+
+
+  const submitInput = () => {
+    Axios.post('http://localhost:3001/insert', {
+      establishment,
+      location, 
+      bathroomCode, 
+    });
+  }
+
   return (
     <MainContainer>
-        <ContainerOverlay/>
+      <ContainerOverlay />
       <BlurbContainer>
         <Blurb>Help me, help you.</Blurb>
       </BlurbContainer>
 
       <InputContainer>
         <InputLabel>Establishment</InputLabel>
-        <EstablishmentInput />
+        <EstablishmentInput
+          value={establishment}
+          onChange={(e) => setEstablishment(e.target.value)}
+        />
         <BottomUnderline />
       </InputContainer>
 
       <InputContainer>
         <InputLabel>Location</InputLabel>
-        <LocationInput />
+        <LocationInput
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
         <BottomUnderline />
       </InputContainer>
 
       <InputContainer>
         <InputLabel>Bathroom Code</InputLabel>
-        <CodeInput />
+        <CodeInput
+          value={bathroomCode}
+          onChange={(e) => setBathroomCode(e.target.value)}
+        />
         <BottomUnderline />
       </InputContainer>
 
-    <SubmitContainer>
-
-      <SubmitBtn>
-        <SubmitText>Submit</SubmitText>
-      </SubmitBtn>
-      <SubmitBlur/>
-    </SubmitContainer>
+      <SubmitContainer>
+        <SubmitBtn onClick={submitInput}>
+          <SubmitText>Submit</SubmitText>
+        </SubmitBtn>
+        <SubmitBlur />
+      </SubmitContainer>
     </MainContainer>
   );
 };

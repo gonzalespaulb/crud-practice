@@ -5,7 +5,7 @@ export const MainContainer = styled.div`
   padding: 20px;
   display: grid;
   grid-row-gap: 20px;
-  grid-auto-rows: auto;
+  grid-auto-rows: minmax(min-content, max-content);
 `;
 
 // NOTE ---------------------------------------------------------CARD STYLING
