@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const COLLECTION = `code`;
+
 const CodeSchema = new mongoose.Schema({
     establishment: {
         type: String, 
@@ -7,7 +9,7 @@ const CodeSchema = new mongoose.Schema({
     },
     location: {
         type: String, 
-        required: true,
+        required: true, 
     },
     bathroomCode: {
         type: String, 
@@ -15,5 +17,5 @@ const CodeSchema = new mongoose.Schema({
     }
 });
 
-const Code = mongoose.model('Code', CodeSchema);
+const Code = mongoose.model(COLLECTION, CodeSchema);
 module.exports = Code; 

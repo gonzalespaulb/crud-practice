@@ -4,10 +4,15 @@ const CodeModel = require('./model/Code');
 const cors = require('cors');
 const app = express();
 
+const DATABASE_NAME = 'toilet';
+
+// Temp pass dont hack me pls
+const DB_PASS = '4d5dP897mxjLRKfR'
+
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://gonzalespaulb:4d5dP897mxjLRKfR@cluster0.ykwtcbm.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://gonzalespaulb:${DB_PASS}@cluster0.ykwtcbm.mongodb.net/${DATABASE_NAME}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
 })
 
@@ -25,7 +30,7 @@ app.post('/insert', async (req, res) => {
 
     try {
         await code.save();
-        res.send('Data was inserted');
+        res.send(code);  
     } catch (err) {
         console.log(err); 
     }

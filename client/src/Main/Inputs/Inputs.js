@@ -23,12 +23,24 @@ const Inputs = () => {
   const [bathroomCode, setBathroomCode] = useState("");
 
 
-  const submitInput = () => {
-    Axios.post('http://localhost:3001/insert', {
+  const submitInput = async () => {
+
+    const clearFields = () => {
+      setEstablishment('');
+      setLocation('');
+      setBathroomCode('');
+    }
+
+   Axios.post('http://localhost:3001/insert', {
       establishment,
       location, 
       bathroomCode, 
-    });
+    }).then((res) => {
+      console.log(res);
+      clearFields();
+    }).then((err) => console.log(err))
+
+
   }
 
   return (
