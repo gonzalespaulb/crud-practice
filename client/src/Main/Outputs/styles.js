@@ -12,12 +12,13 @@ export const MainContainer = styled.div`
 
 export const CardContainer = styled.div`
   border-radius: 20px;
-  background-size: 30%;
   background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px;
+  position: relative;
+  overflow: hidden;
 `;
 
 export const BlurbContainer = styled.div`
@@ -27,6 +28,19 @@ export const BlurbContainer = styled.div`
 
 export const CodeContainer = styled.div`
   
+`;
+
+export const CloseBtn = styled.div`
+  background: red;
+  opacity: 0.3;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(25%) translateY(-40%);
+  cursor: pointer;
 `;
 
 export const Establishment = styled.h2`

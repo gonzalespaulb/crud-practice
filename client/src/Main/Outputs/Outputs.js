@@ -6,28 +6,29 @@ import { MainContainer } from "./styles";
 const Outputs = () => {
   const [establishmentData, setEstablishmentData] = useState([]);
 
-  const getOutputs = async () => {
-    try {
-      const data = await Axios.get("http://localhost:3001/");
-      setEstablishmentData(data.data.data);
-    } catch (err) {
-      console.log(err);
-    }
+  const getOutputs = () => {
+    Axios.get("http://localhost:3001/").then((response) => {
+      setEstablishmentData(response.data);
+    })
+  }
+
+  const deleteCode = (id) => {
+    Axios.delete(`http://localhost:3001/delete/${id}`)
   }
 
   useEffect(() => {
     getOutputs();
   }, []);
 
-  const renderBussin = () => {
-    return establishmentData.map((establishmentInfo) => {
-        return <Card establishmentInfo={establishmentInfo}/>
+  const renderToiletCards = () => {
+    return establishmentData.map((establishmentInfo, key) => {
+        return <Card establishmentInfo={establishmentInfo} key={key} deleteCode={deleteCode}/>
     })
   }
 
   return (
     <MainContainer>
-        {renderBussin()}
+        {renderToiletCards()}
     </MainContainer>
   );
 };

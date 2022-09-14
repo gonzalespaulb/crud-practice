@@ -36,19 +36,21 @@ app.post('/insert', async (req, res) => {
     }
 })
 
+app.delete("/delete/:id", async (req, res) => {
+    const id = req.params.id;
+
+    await CodeModel.findByIdAndRemove(id).exec();
+    res.send("delete");
+})
+
 app.get('/', async (req, res) => {
-    try {
-        const codes = await CodeModel.find();
 
-        const jsonData = {
-            status: 'success',
-            data: codes,
-        };
-
-        return res.send(jsonData);
-    } catch (err) {
-        console.log(err);
-    }
+    CodeModel.find({} , (err, result) => {
+        if(err) {
+            res.send(err);
+        }
+        res.send(result);
+    })
 })
 
 app.listen(3001, () => {
